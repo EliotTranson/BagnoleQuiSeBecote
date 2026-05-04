@@ -1,9 +1,83 @@
+using System;
+using NUnit.Framework;
 using UnityEngine;
 
 
 public class SimpleCarController : MonoBehaviour
 {
     public CarInput input;
+    [SerializeField] private Rigidbody rb;
+
+    private float speed, turn;
+    [SerializeField] private float maxSpeed = 5000;
+    [SerializeField] private float turnStrength = 180;
+    [SerializeField] private float dragOnGround = 3;
     
-    
+    [Header("Gravity & Ground")]
+    [SerializeField] private float gravityForce = 10f;
+    [SerializeField] private LayerMask lmGround;
+    [SerializeField] private float groundRayLength = 0.5f;
+    [SerializeField] private Transform groundRayPoint;
+    private bool grounded;
+    private RaycastHit hit;
+
+    [Header("Feedbacks")] 
+    [SerializeField] private Transform leftFrontWheel;
+    [SerializeField] private Transform rightFrontWheel;
+    [SerializeField] private float maxWheelTurn = 25f;
+
+    private void Start()
+    {
+        rb.transform.parent = null;
+    }
+
+    private void Update()
+    {
+        MyInputs();
+        
+        transform.position = rb.transform.position;
+
+        if (grounded)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turn * turnStrength * Time.deltaTime * speed, 0f));
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turn * turnStrength/5 * Time.deltaTime * speed, 0f));
+        }
+        
+        leftFrontWheel.localRotation = Quaternion.Lerp(leftFrontWheel.localRotation, Quaternion.Euler(leftFrontWheel.localEulerAngles.x, (turn * maxWheelTurn) - 180, leftFrontWheel.localEulerAngles.z), 8 * Time.deltaTime);
+        rightFrontWheel.localRotation = Quaternion.Lerp(rightFrontWheel.localRotation, Quaternion.Euler(rightFrontWheel.localEulerAngles.x, (turn * maxWheelTurn) - 180, rightFrontWheel.localEulerAngles.z), 8 * Time.deltaTime);
+    }
+
+    private void MyInputs()
+    {
+        float targetSpeed = input.accel - input.decel;
+        speed = Mathf.Clamp(Mathf.Lerp(speed, targetSpeed, 1 * Time.deltaTime), -0.5f, 1);
+        turn = input.turn;
+    }
+
+    private void FixedUpdate()
+    {
+        GroundCheck();
+        
+        if (grounded)
+        {
+            rb.linearDamping = dragOnGround;
+            rb.linearVelocity += (transform.forward * speed * 0.01f * maxSpeed);
+            
+            var targetRotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 6f * Time.deltaTime);
+        }
+        else
+        {
+            rb.linearDamping = 0.1f;
+            rb.AddForce(Vector3.down * gravityForce);
+        }
+    }
+
+    private void GroundCheck()
+    {
+        grounded = Physics.Raycast(groundRayPoint.position, Vector3.down, out hit, groundRayLength, lmGround);
+    }
 }
