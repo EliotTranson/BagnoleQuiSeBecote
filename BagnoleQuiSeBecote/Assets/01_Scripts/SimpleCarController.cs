@@ -21,10 +21,15 @@ public class SimpleCarController : MonoBehaviour
     private bool grounded;
     private RaycastHit hit;
 
-    [Header("Feedbacks")] 
+    [Header("Feedbacks")]
+    [SerializeField] private Animator animator;
     [SerializeField] private Transform leftFrontWheel;
     [SerializeField] private Transform rightFrontWheel;
     [SerializeField] private float maxWheelTurn = 25f;
+
+    [Header("Actions")]
+    [SerializeField] private float jumpForce;
+    private bool canJump;
 
     private void Start()
     {
@@ -34,6 +39,7 @@ public class SimpleCarController : MonoBehaviour
     private void Update()
     {
         MyInputs();
+        UpdateAnimation();
         
         transform.position = rb.transform.position;
 
@@ -43,18 +49,31 @@ public class SimpleCarController : MonoBehaviour
         }
         else
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turn * turnStrength/5 * Time.deltaTime * speed, 0f));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turn * turnStrength/3 * Time.deltaTime * speed, 0f));
         }
         
-        leftFrontWheel.localRotation = Quaternion.Lerp(leftFrontWheel.localRotation, Quaternion.Euler(leftFrontWheel.localEulerAngles.x, (turn * maxWheelTurn) - 180, leftFrontWheel.localEulerAngles.z), 8 * Time.deltaTime);
-        rightFrontWheel.localRotation = Quaternion.Lerp(rightFrontWheel.localRotation, Quaternion.Euler(rightFrontWheel.localEulerAngles.x, (turn * maxWheelTurn) - 180, rightFrontWheel.localEulerAngles.z), 8 * Time.deltaTime);
+        leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localEulerAngles.x, (turn * maxWheelTurn) - 180, leftFrontWheel.localEulerAngles.z);
+        rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localEulerAngles.x, (turn * maxWheelTurn) - 180, rightFrontWheel.localEulerAngles.z);
     }
 
     private void MyInputs()
     {
         float targetSpeed = input.accel - input.decel;
-        speed = Mathf.Clamp(Mathf.Lerp(speed, targetSpeed, 1 * Time.deltaTime), -0.5f, 1);
-        turn = input.turn;
+        speed = Mathf.Clamp(Mathf.Lerp(speed, targetSpeed, 1 * Time.deltaTime), -0.5f, 1) ;
+        
+        turn = Mathf.Lerp(turn, input.turn, 8 * Time.deltaTime);
+    }
+
+    private float animTurn;
+    private void UpdateAnimation()
+    {
+        if (grounded && Mathf.Abs(speed) > 0.4f) 
+            animTurn = Mathf.Lerp(animTurn, turn, 2 * Time.deltaTime);
+        else 
+            animTurn = Mathf.Lerp(animTurn, 0, 2 * Time.deltaTime);
+        
+        animator.SetFloat("Turn", animTurn);
+        animator.SetFloat("Speed", speed);
     }
 
     private void FixedUpdate()
@@ -79,5 +98,10 @@ public class SimpleCarController : MonoBehaviour
     private void GroundCheck()
     {
         grounded = Physics.Raycast(groundRayPoint.position, Vector3.down, out hit, groundRayLength, lmGround);
+    }
+
+    public void Jump()
+    {
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 }
