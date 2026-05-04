@@ -7,7 +7,7 @@ namespace CarScripts {
     public class CarController : MonoBehaviour {
         private Rigidbody carRb;
         
-        public InputHandler input;
+        public CarInput input;
         
         private enum WheelDriveMode {
             FWD, //Front
@@ -187,16 +187,10 @@ namespace CarScripts {
         }
 
         void MyInputs() {
-            /*if (input == null) {
-                steering = 0;
-                throttle = 0;
-                brake = 0;
-                return;
-            }*/
-
-            steering = input.splitCarInput.turn;
-            throttle = input.splitCarInput.accel;
-            brake = input.splitCarInput.decel;
+            
+            steering = input.turn;
+            throttle = input.accel;
+            brake = input.decel;
         }
         
         void LateUpdate() {
