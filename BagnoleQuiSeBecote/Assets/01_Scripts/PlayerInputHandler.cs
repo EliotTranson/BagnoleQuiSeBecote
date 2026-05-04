@@ -20,4 +20,12 @@ public class PlayerInputHandler : MonoBehaviour
     {
         turn = context.ReadValue<Vector2>().x;
     }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.action.WasPressedThisFrame())
+        {
+            FindAnyObjectByType<SimpleCarController>().Jump();
+        }
+    }
 }
