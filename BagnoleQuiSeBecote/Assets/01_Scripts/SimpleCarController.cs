@@ -29,6 +29,7 @@ public class SimpleCarController : MonoBehaviour
 
     [Header("Actions")]
     [SerializeField] private float jumpForce;
+    private bool canJump;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class SimpleCarController : MonoBehaviour
         }
         else
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turn * turnStrength/5 * Time.deltaTime * speed, 0f));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turn * turnStrength/3 * Time.deltaTime * speed, 0f));
         }
         
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localEulerAngles.x, (turn * maxWheelTurn) - 180, leftFrontWheel.localEulerAngles.z);

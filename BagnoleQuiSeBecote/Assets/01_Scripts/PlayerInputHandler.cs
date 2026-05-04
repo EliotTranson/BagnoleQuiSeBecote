@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    public float accel, decel, turn;
+    public float accel, decel, turn, jump;
 
     public void OnAccel(InputAction.CallbackContext context)
     {
@@ -23,9 +23,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.action.WasPressedThisFrame())
-        {
-            FindAnyObjectByType<SimpleCarController>().Jump();
-        }
+        if(context.action.WasPressedThisFrame()) jump = 0.5f;
+        if(context.action.WasReleasedThisFrame()) jump = 0;
     }
 }

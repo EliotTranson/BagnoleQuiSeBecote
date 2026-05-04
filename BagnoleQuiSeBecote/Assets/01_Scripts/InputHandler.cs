@@ -32,25 +32,28 @@ public class InputHandler : MonoBehaviour
         J1Input.accel = playerInput1.accel;
         J1Input.decel = playerInput1.decel;
         J1Input.turn = playerInput1.turn;
+        J1Input.jump = playerInput1.jump;
         
         J2Input.accel = playerInput2.accel;
         J2Input.decel = playerInput2.decel;
         J2Input.turn = playerInput2.turn;
+        J2Input.jump = playerInput2.jump;
         
         TwiceInput.accel = (J1Input.accel / 2) + (J2Input.accel / 2);
         TwiceInput.decel = (J1Input.decel / 2) + (J2Input.decel / 2);
         TwiceInput.turn = (J1Input.turn / 2) + (J2Input.turn / 2);
+        TwiceInput.jump = J1Input.jump + J2Input.jump;
         
         UpdateDebugUI();
     }
 
     private void UpdateDebugUI()
     {
-        J1Text.text = $"J1 / Accel : {J1Input.accel} / Decel : {J1Input.decel} / Turn : {J1Input.turn}";
+        J1Text.text = $"J1 / Accel : {J1Input.accel} / Decel : {J1Input.decel} / Turn : {J1Input.turn} / Jump : {J1Input.jump}";
         
-        J2Text.text = $"J2 / Accel : {J2Input.accel} / Decel : {J2Input.decel} / Turn : {J2Input.turn}";
+        J2Text.text = $"J2 / Accel : {J2Input.accel} / Decel : {J2Input.decel} / Turn : {J2Input.turn} / Jump : {J2Input.jump}";
         
-        TwoPlayerText.text = $"Two Player / Accel : {TwiceInput.accel} / Decel : {TwiceInput.decel} / Turn : {TwiceInput.turn}";
+        TwoPlayerText.text = $"Two Player / Accel : {TwiceInput.accel} / Decel : {TwiceInput.decel} / Turn : {TwiceInput.turn} / Jump : {TwiceInput.jump}";
     }
 
     public void InitializePlayerInput(PlayerInput input)

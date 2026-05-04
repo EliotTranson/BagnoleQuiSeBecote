@@ -37,7 +37,7 @@
                     "name": "Jump",
                     "type": "PassThrough",
                     "id": "225714a9-ee28-4bf2-8313-798725117aa3",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
