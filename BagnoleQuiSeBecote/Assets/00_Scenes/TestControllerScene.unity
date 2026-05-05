@@ -4635,7 +4635,7 @@ PrefabInstance:
       objectReference: {fileID: 1396930552}
     - target: {fileID: 4526783726001443379, guid: 00d7f82187d58ec4c8aa2e913b482abd, type: 3}
       propertyPath: activeMode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5032531795517495456, guid: 00d7f82187d58ec4c8aa2e913b482abd, type: 3}
       propertyPath: m_Mesh
@@ -4771,7 +4771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7943536221053479973, guid: 00d7f82187d58ec4c8aa2e913b482abd, type: 3}
       propertyPath: jumpForce
-      value: 1000
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 8059249800527902646, guid: 00d7f82187d58ec4c8aa2e913b482abd, type: 3}
       propertyPath: m_Mesh
