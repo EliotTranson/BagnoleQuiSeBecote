@@ -36,6 +36,10 @@ public class SimpleCarController : MonoBehaviour
     private bool j1Call, j2Call;
     private bool j1ActionDone, j2ActionDone;
     private bool checkForActionReset;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashTimer;
+    private bool isDashing;
+    
 
     private void Start()
     {
@@ -66,8 +70,15 @@ public class SimpleCarController : MonoBehaviour
 
     private void MyInputs()
     {
-        float targetSpeed = input.accel - input.decel;
-        speed = Mathf.Clamp(Mathf.Lerp(speed, targetSpeed, 1 * Time.deltaTime), -0.5f, 1) ;
+        if (isDashing)
+        {
+            speed = dashSpeed;
+        }
+        else
+        {
+            float targetSpeed = input.accel - input.decel;
+            speed = Mathf.Clamp(Mathf.Lerp(speed, targetSpeed, 1 * Time.deltaTime), -0.5f, 1) ;
+        }
         
         turn = Mathf.Lerp(turn, input.turn, 8 * Time.deltaTime);
 
@@ -251,6 +262,9 @@ public class SimpleCarController : MonoBehaviour
     {
         //Debug.Log("Dash");
         
+        animator.SetTrigger("Dash");
+        StartCoroutine(DashCD());
+        
         j1ActionDone = true;
         j2ActionDone = true;
     }
@@ -260,6 +274,13 @@ public class SimpleCarController : MonoBehaviour
         checkForActionReset = true;
         yield return new WaitForSeconds(0.4f);
         checkForActionReset = false;
+    }
+
+    private IEnumerator DashCD()
+    {
+        isDashing = true;
+        yield return new WaitForSeconds(dashTimer);
+        isDashing = false;
     }
 
     
