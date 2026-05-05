@@ -41,6 +41,8 @@ public class SimpleCarController : MonoBehaviour
         MyInputs();
         UpdateAnimation();
         
+        HandleJump();
+        
         transform.position = rb.transform.position;
 
         if (grounded)
@@ -98,10 +100,25 @@ public class SimpleCarController : MonoBehaviour
     private void GroundCheck()
     {
         grounded = Physics.Raycast(groundRayPoint.position, Vector3.down, out hit, groundRayLength, lmGround);
+
+        if (!canJump && grounded && input.jump == 0)
+        {
+            canJump = true;
+        }
     }
 
-    public void Jump()
+    public void HandleJump()
     {
+        if (canJump && input.jump == 1)
+        {
+            Jump();
+            canJump = false;
+        }
+    }
+
+    private void Jump()
+    {
+        Debug.Log("Jump");
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 }

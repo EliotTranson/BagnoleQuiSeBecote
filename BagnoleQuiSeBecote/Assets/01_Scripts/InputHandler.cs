@@ -32,12 +32,12 @@ public class InputHandler : MonoBehaviour
         J1Input.accel = playerInput1.accel;
         J1Input.decel = playerInput1.decel;
         J1Input.turn = playerInput1.turn;
-        J1Input.jump = playerInput1.jump;
+        J1Input.jump = playerInput1.jump * 2;
         
         J2Input.accel = playerInput2.accel;
         J2Input.decel = playerInput2.decel;
         J2Input.turn = playerInput2.turn;
-        J2Input.jump = playerInput2.jump;
+        J2Input.jump = playerInput2.jump * 2;
         
         TwiceInput.accel = (J1Input.accel / 2) + (J2Input.accel / 2);
         TwiceInput.decel = (J1Input.decel / 2) + (J2Input.decel / 2);
