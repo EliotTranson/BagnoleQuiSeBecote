@@ -246,7 +246,7 @@ public class SimpleCarController : MonoBehaviour
 
         if (playerIndex == 1)
         {
-            j1ActionDone = true;
+           //j1ActionDone = true;
         }
         if (playerIndex == 2)
         {
