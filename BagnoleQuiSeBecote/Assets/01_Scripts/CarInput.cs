@@ -2,5 +2,6 @@ using UnityEngine;
 
 public struct CarInput
 {
-    public float accel, decel, turn, jump;
+    public float accel, decel, turn;
+    public bool jump;
 }
