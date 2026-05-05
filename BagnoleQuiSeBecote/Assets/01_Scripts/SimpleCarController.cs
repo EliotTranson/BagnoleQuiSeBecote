@@ -119,6 +119,7 @@ public class SimpleCarController : MonoBehaviour
     private void Jump()
     {
         Debug.Log("Jump");
+        //rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 }
