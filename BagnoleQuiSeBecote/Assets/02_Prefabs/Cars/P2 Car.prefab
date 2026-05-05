@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 8165416395993576630}
   m_Layer: 0
   m_Name: P2 Car
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
