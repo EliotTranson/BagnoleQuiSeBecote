@@ -31,7 +31,6 @@ public class CarTwice : MonoBehaviour
             if (currentSplitTimer < splitTimer)
             {
                 currentSplitTimer += Time.deltaTime;
-                Debug.Log(currentSplitTimer);
             }
             else
             {
