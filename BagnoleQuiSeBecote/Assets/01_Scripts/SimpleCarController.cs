@@ -7,13 +7,15 @@ using UnityEngine;
 public class SimpleCarController : MonoBehaviour
 {
     public CarInput input;
-    [SerializeField] private Rigidbody rb;
+    public Rigidbody rb;
     private CarInputMode mode;
-
-    private float speed, turn;
+    public MeshRenderer baseMesh, tuningMesh;
+    
+    [Header("Base Settings")]
     [SerializeField] private float maxSpeed = 5000;
     [SerializeField] private float turnStrength = 180;
     [SerializeField] private float dragOnGround = 3;
+    [HideInInspector] public float speed, turn;
     
     [Header("Gravity & Ground")]
     [SerializeField] private float gravityForce = 10f;
@@ -39,6 +41,8 @@ public class SimpleCarController : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTimer;
     private bool isDashing;
+    private Vector2 chargeVector;
+    private Vector2 targetChargeVector;
     
 
     private void Start()
@@ -129,17 +133,12 @@ public class SimpleCarController : MonoBehaviour
         
         
     }
-
-    private float animTurn;
+    
     private void UpdateAnimation()
     {
-        if (grounded && Mathf.Abs(speed) > 0.4f) 
-            animTurn = Mathf.Lerp(animTurn, turn, 2 * Time.deltaTime);
-        else 
-            animTurn = Mathf.Lerp(animTurn, 0, 2 * Time.deltaTime);
-        
-        animator.SetFloat("Turn", animTurn);
         animator.SetFloat("Speed", speed);
+
+        UpdateChargeAnim();
     }
 
     private void UpdateActionResets()
@@ -217,9 +216,9 @@ public class SimpleCarController : MonoBehaviour
             j2Call = true;
         }
         
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         StartCoroutine(ActionCD());
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.08f);
 
         //Debug.Log($"{j1Call}/{j2Call} called");
 
@@ -247,7 +246,7 @@ public class SimpleCarController : MonoBehaviour
 
         if (playerIndex == 1)
         {
-           // j1ActionDone = true;
+           //j1ActionDone = true;
         }
         if (playerIndex == 2)
         {
@@ -267,6 +266,53 @@ public class SimpleCarController : MonoBehaviour
         
         j1ActionDone = true;
         j2ActionDone = true;
+    }
+    
+    private void UpdateChargeAnim()
+    {
+        //Debug.Log($"{chargeVector}");
+        
+        if (mode.activeMode == CarInputMode.CarMode.Twice)
+        {
+            animator.SetFloat("ChargeX", chargeVector.x);
+            animator.SetFloat("ChargeY", chargeVector.y);
+
+            chargeVector = Vector2.Lerp(chargeVector, targetChargeVector, 2 * Time.deltaTime);
+            
+            if (j1Charge && j2Charge)
+            {
+                targetChargeVector.x = 0;
+                targetChargeVector.y = 1;
+            }
+            else if (j1Charge)
+            {
+                targetChargeVector.x = -1;
+                targetChargeVector.y = 0;
+            }
+            else if (j2Charge)
+            {
+                targetChargeVector.x = 1;
+                targetChargeVector.y = 0;
+            }
+            else
+            {
+                targetChargeVector.x = 0;
+                targetChargeVector.y = 0;
+            }
+        }
+        else
+        {
+            if (j1Charge)
+            {
+                targetChargeVector.x = 0;
+                targetChargeVector.y = 1;
+            }
+            else
+            {
+                targetChargeVector.x = 0;
+                targetChargeVector.y = 0;
+            }
+        }
     }
 
     private IEnumerator ActionCD()

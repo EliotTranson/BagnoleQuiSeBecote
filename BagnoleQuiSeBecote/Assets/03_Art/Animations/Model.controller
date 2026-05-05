@@ -9,36 +9,44 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d591e57418336c74cafbc76a84aa8c3c, type: 2}
-    m_Threshold: -1
-    m_Position: {x: -1, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Blend
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d591e57418336c74cafbc76a84aa8c3c, type: 2}
+    m_Motion: {fileID: 7400000, guid: bc2315386913adc4784d8b01eb0b562c, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Blend
+    m_DirectBlendParameter: Turn
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d591e57418336c74cafbc76a84aa8c3c, type: 2}
+    m_Motion: {fileID: 7400000, guid: 68ef0b95ff605e5438cf4e9ddb6541ba, type: 2}
     m_Threshold: 1
-    m_Position: {x: -0.96, y: 0.26}
+    m_Position: {x: -1, y: -0.1}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Blend
+    m_DirectBlendParameter: Turn
     m_Mirror: 0
-  m_BlendParameter: Turn
-  m_BlendParameterY: Speed
-  m_MinThreshold: -1
-  m_MaxThreshold: 1
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: ef5772dc85e5e4549ac22c992d1d62ae, type: 2}
+    m_Threshold: 2
+    m_Position: {x: 1, y: -0.1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Turn
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 24939d38a1166564e8020196fdec1c1b, type: 2}
+    m_Threshold: 3
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Turn
+    m_Mirror: 0
+  m_BlendParameter: ChargeX
+  m_BlendParameterY: ChargeY
+  m_MinThreshold: 0
+  m_MaxThreshold: 3
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
-  m_BlendType: 0
+  m_BlendType: 1
 --- !u!1107 &-5518551769659077542
 AnimatorStateMachine:
   serializedVersion: 6
@@ -71,7 +79,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TurnTree
+  m_Name: ChargeTree
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -148,7 +156,13 @@ AnimatorController:
   m_Name: Model
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Turn
+  - m_Name: ChargeX
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: ChargeY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -168,7 +182,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: Turn Layer
+    m_Name: ChargeLevel
     m_StateMachine: {fileID: 2902004487001410172}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -198,11 +212,11 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Turn Layer
+  m_Name: ChargeLevel
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -3903041211618463599}
-    m_Position: {x: 327.67667, y: 67.11456, z: 0}
+    m_Position: {x: 330, y: 120, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
