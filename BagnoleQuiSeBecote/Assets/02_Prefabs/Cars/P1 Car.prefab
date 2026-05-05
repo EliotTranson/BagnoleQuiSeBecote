@@ -811,7 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bec69342e8f9f947a647fa0abe73294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarSplit
-  carController: {fileID: 0}
+  bigCar: {fileID: 2623550600963830419, guid: 00d7f82187d58ec4c8aa2e913b482abd, type: 3}
 --- !u!65 &5469973994574776492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -831,8 +831,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1726856, y: 1.1115164, z: 4.735149}
-  m_Center: {x: -0.037466526, y: 0.24417275, z: -0.076185465}
+  m_Size: {x: 2.172686, y: 1.1115164, z: 6.235149}
+  m_Center: {x: -0.54, y: 0.24417275, z: -0.076185465}
 --- !u!1001 &7493703408904790304
 PrefabInstance:
   m_ObjectHideFlags: 0

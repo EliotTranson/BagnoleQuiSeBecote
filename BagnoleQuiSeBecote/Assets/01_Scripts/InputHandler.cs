@@ -14,6 +14,10 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI J1Text, J2Text, TwoPlayerText;
     
     public static InputHandler Instance { get; private set; }
+
+    [Header("Cars")]
+    public GameObject BigCar;
+    public GameObject J1Car, J2Car;
     
     private void Awake()
     {
@@ -65,6 +69,33 @@ public class InputHandler : MonoBehaviour
         {
             playerInput2 = input.gameObject.GetComponent<PlayerInputHandler>();
         }
-        
+    }
+
+    public void SetupCar(CarInputMode.CarMode mode, GameObject car)
+    {
+        switch (mode)
+        {
+            case CarInputMode.CarMode.J1 :
+                if (J1Car != null)
+                {
+                    Destroy(J1Car.gameObject);
+                }
+                J1Car = car;
+                break;
+            case CarInputMode.CarMode.J2 : 
+                if (J2Car != null)
+                {
+                    Destroy(J2Car.gameObject);
+                }
+                J2Car = car;
+                break;
+            case CarInputMode.CarMode.Twice : 
+                if (BigCar != null)
+                {
+                    Destroy(BigCar.gameObject);
+                }
+                BigCar = car;
+                break;
+        }
     }
 }
