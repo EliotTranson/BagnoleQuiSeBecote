@@ -6,6 +6,7 @@ public class CarSplit : MonoBehaviour
 {
     private SimpleCarController carController;
     private bool canMerge;
+    [SerializeField] private bool mergeEnable;
     private SimpleCarController otherCar;
 
     [SerializeField] private GameObject bigCar;
@@ -18,7 +19,7 @@ public class CarSplit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && canMerge)
+        if (other.gameObject.CompareTag("Player") && canMerge && mergeEnable)
         {
             otherCar = other.GetComponent<CarSphereLink>().car;
             CallMerge();

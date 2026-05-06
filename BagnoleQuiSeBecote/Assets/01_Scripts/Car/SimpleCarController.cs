@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class SimpleCarController : MonoBehaviour
@@ -10,6 +11,7 @@ public class SimpleCarController : MonoBehaviour
     public Rigidbody rb;
     public CarInputMode mode;
     public MeshRenderer baseMesh, tuningMesh;
+    public AudioSource klaxonSound;
     
     [Header("Base Settings")]
     [SerializeField] private float maxSpeed = 5000;
@@ -63,6 +65,7 @@ public class SimpleCarController : MonoBehaviour
         MyInputs();
         UpdateAnimation();
         UpdateActionResets();
+        Klaxon();
         
         transform.position = rb.transform.position;
 
@@ -363,5 +366,13 @@ public class SimpleCarController : MonoBehaviour
         Destroy(rb.gameObject);
         Destroy(gameObject);
     }
-    
+
+    public void Klaxon()
+    {
+        if (input.klaxon)
+        {
+            klaxonSound.Play();
+        }
+    }
+
 }

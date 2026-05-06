@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerInputHandler : MonoBehaviour
 {
     public float accel, decel, turn;
-    public bool jump;
+    public bool jump, klaxon;
 
     public void OnAccel(InputAction.CallbackContext context)
     {
@@ -26,5 +26,11 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if(context.action.WasPressedThisFrame()) jump = true;
         if(context.action.WasReleasedThisFrame()) jump = false;
+    }
+    
+    public void OnKlaxon(InputAction.CallbackContext context)
+    {
+        if(context.action.WasPressedThisFrame()) klaxon = true;
+        if(context.action.WasReleasedThisFrame()) klaxon = false;
     }
 }
