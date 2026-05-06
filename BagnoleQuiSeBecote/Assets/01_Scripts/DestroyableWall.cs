@@ -21,7 +21,7 @@ public class DestroyableWall : MonoBehaviour
 
     private void DestroyWall()
     {
-        Debug.Log("Destroy");
+        //Debug.Log("Destroy");
         Instantiate(psExplosion, null);
         Destroy(gameObject);
     }

@@ -185,6 +185,14 @@ public class SimpleCarController : MonoBehaviour
         {
             rb.linearDamping = 0.1f;
             rb.AddForce(Vector3.down * gravityForce);
+
+            var horizontalVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
+            Debug.Log(horizontalVelocity);
+            if (horizontalVelocity < 8f)
+            {
+                Debug.Log(horizontalVelocity);
+                rb.linearVelocity += (transform.forward * speed * 0.005f * maxSpeed);
+            }
         }
     }
 
@@ -283,12 +291,11 @@ public class SimpleCarController : MonoBehaviour
     private void UpdateChargeAnim()
     {
         //Debug.Log($"{chargeVector}");
+        animator.SetFloat("ChargeX", chargeVector.x);
+        animator.SetFloat("ChargeY", chargeVector.y);
         
         if (mode.activeMode == CarInputMode.CarMode.Twice)
         {
-            animator.SetFloat("ChargeX", chargeVector.x);
-            animator.SetFloat("ChargeY", chargeVector.y);
-
             chargeVector = Vector2.Lerp(chargeVector, targetChargeVector, 2 * Time.deltaTime);
             
             if (j1Charge && j2Charge)
