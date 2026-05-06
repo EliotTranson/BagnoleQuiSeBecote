@@ -8,7 +8,7 @@ public class SimpleCarController : MonoBehaviour
 {
     public CarInput input;
     public Rigidbody rb;
-    private CarInputMode mode;
+    public CarInputMode mode;
     public MeshRenderer baseMesh, tuningMesh;
     
     [Header("Base Settings")]
@@ -40,7 +40,7 @@ public class SimpleCarController : MonoBehaviour
     private bool checkForActionReset;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTimer;
-    private bool isDashing;
+    [HideInInspector] public bool isDashing;
     private Vector2 chargeVector;
     private Vector2 targetChargeVector;
     
@@ -95,27 +95,33 @@ public class SimpleCarController : MonoBehaviour
         if (mode.activeMode == CarInputMode.CarMode.Twice)
         {
             //Get Action Inputs changes
-            if (j1Input != InputHandler.Instance.J1Input.jump && !j1ActionDone)
+            if (j1Input != InputHandler.Instance.J1Input.jump)
             {
                 j1Input = InputHandler.Instance.J1Input.jump;
+                
                 if (j1Input)
                 {
+                    if (j1ActionDone) return;
                     Charge(1);
                 }
                 else
                 {
+                    if (j1ActionDone) return;
                     CallAction(1);
                 }
             }
-            if (j2Input != InputHandler.Instance.J2Input.jump && !j2ActionDone)
+            if (j2Input != InputHandler.Instance.J2Input.jump)
             {
                 j2Input = InputHandler.Instance.J2Input.jump;
+                
                 if (j2Input)
                 {
+                    if (j2ActionDone) return;
                     Charge(2);
                 }
                 else
                 {
+                    if (j2ActionDone) return;
                     CallAction(2);
                 }
             }
@@ -179,6 +185,14 @@ public class SimpleCarController : MonoBehaviour
         {
             rb.linearDamping = 0.1f;
             rb.AddForce(Vector3.down * gravityForce);
+
+            var horizontalVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
+            Debug.Log(horizontalVelocity);
+            if (horizontalVelocity < 8f)
+            {
+                Debug.Log(horizontalVelocity);
+                rb.linearVelocity += (transform.forward * speed * 0.005f * maxSpeed);
+            }
         }
     }
 
@@ -277,12 +291,11 @@ public class SimpleCarController : MonoBehaviour
     private void UpdateChargeAnim()
     {
         //Debug.Log($"{chargeVector}");
+        animator.SetFloat("ChargeX", chargeVector.x);
+        animator.SetFloat("ChargeY", chargeVector.y);
         
         if (mode.activeMode == CarInputMode.CarMode.Twice)
         {
-            animator.SetFloat("ChargeX", chargeVector.x);
-            animator.SetFloat("ChargeY", chargeVector.y);
-
             chargeVector = Vector2.Lerp(chargeVector, targetChargeVector, 2 * Time.deltaTime);
             
             if (j1Charge && j2Charge)
@@ -335,5 +348,10 @@ public class SimpleCarController : MonoBehaviour
         isDashing = false;
     }
 
+    public void DestroyThisCar()
+    {
+        Destroy(rb.gameObject);
+        Destroy(gameObject);
+    }
     
 }

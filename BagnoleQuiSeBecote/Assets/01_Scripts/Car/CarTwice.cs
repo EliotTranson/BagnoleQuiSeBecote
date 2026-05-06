@@ -57,7 +57,7 @@ public class CarTwice : MonoBehaviour
         Split(secondCar, CarInputMode.CarMode.J2);
         
         //Destroy Big Car
-        Destroy(gameObject);
+        carController.DestroyThisCar();
     }
 
     private void Split(GameObject car, CarInputMode.CarMode mode)

@@ -20,7 +20,7 @@ public class CarSplit : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && canMerge)
         {
-            otherCar = other.GetComponent<CarSplitJ2>().J2Car;
+            otherCar = other.GetComponent<CarSphereLink>().car;
             CallMerge();
         }
     }
@@ -39,8 +39,8 @@ public class CarSplit : MonoBehaviour
         Merge(car);
         
         //Destroy Big Car
-        Destroy(otherCar.gameObject);
-        Destroy(gameObject);
+        otherCar.DestroyThisCar();
+        carController.DestroyThisCar();
     }
 
     private void Merge(GameObject car)
