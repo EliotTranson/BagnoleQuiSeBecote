@@ -8,7 +8,7 @@ public class SimpleCarController : MonoBehaviour
 {
     public CarInput input;
     public Rigidbody rb;
-    private CarInputMode mode;
+    public CarInputMode mode;
     public MeshRenderer baseMesh, tuningMesh;
     
     [Header("Base Settings")]
@@ -40,7 +40,7 @@ public class SimpleCarController : MonoBehaviour
     private bool checkForActionReset;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTimer;
-    private bool isDashing;
+    [HideInInspector] public bool isDashing;
     private Vector2 chargeVector;
     private Vector2 targetChargeVector;
     
@@ -341,5 +341,10 @@ public class SimpleCarController : MonoBehaviour
         isDashing = false;
     }
 
+    public void DestroyThisCar()
+    {
+        Destroy(rb.gameObject);
+        Destroy(gameObject);
+    }
     
 }

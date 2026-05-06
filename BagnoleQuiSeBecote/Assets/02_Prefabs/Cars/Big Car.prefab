@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4043d946b839c5d4e8465daf4ff204b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarSphereLink
-  J2Car: {fileID: 7943536221053479973}
+  car: {fileID: 7943536221053479973}
 --- !u!1 &5167041579780265149
 GameObject:
   m_ObjectHideFlags: 0
