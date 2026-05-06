@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 7943536221053479973}
   - component: {fileID: 2620951835496771906}
   - component: {fileID: 8713626148423237290}
+  - component: {fileID: 7565935650404980769}
   m_Layer: 0
   m_Name: Big Car
   m_TagString: Player
@@ -443,6 +444,8 @@ MonoBehaviour:
   mode: {fileID: 0}
   baseMesh: {fileID: 7706700170519021843}
   tuningMesh: {fileID: 5424506483191776449}
+  klaxonInput: {fileID: 5192537138258684938, guid: 34ec3bea854ebb94390c5138723de089, type: 3}
+  klaxonSound: {fileID: 7565935650404980769}
   maxSpeed: 250
   turnStrength: 120
   dragOnGround: 3
@@ -494,6 +497,103 @@ MonoBehaviour:
   cineCam: {fileID: 3581211369498652899}
   psSpeedLines: {fileID: 575432452420328041}
   speedLinesThreshold: 28
+--- !u!82 &7565935650404980769
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2623550600963830419}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 07a70ab80e8a7984d970462a0225c8c4, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3583408733190952787
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,8 +5946,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167041579780265149}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.06785026, y: 0, z: 0, w: 0.9976955}
-  m_LocalPosition: {x: 4.06831, y: 0.5653, z: -5.43356}
+  m_LocalRotation: {x: 0.06785032, y: -0.00000024322784, z: 0.000000016975433, w: 0.99769557}
+  m_LocalPosition: {x: 4.068313, y: 0.5653, z: -5.433557}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6016,8 +6116,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5594798526480531095}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.06785026, y: 0, z: 0, w: 0.9976955}
-  m_LocalPosition: {x: 4.06831, y: 0.5653, z: -5.43356}
+  m_LocalRotation: {x: 0.067850314, y: -0.00000024586916, z: 0.000000016996637, w: 0.99769557}
+  m_LocalPosition: {x: 4.068313, y: 0.5653, z: -5.433557}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6122,7 +6222,7 @@ MonoBehaviour:
   PivotOffset: {x: 0, y: 0, z: 0}
   AmplitudeGain: 1
   FrequencyGain: 1
-  m_NoiseOffsets: {x: 0, y: 0, z: 0}
+  m_NoiseOffsets: {x: 367.05966, y: -169.02414, z: -696.25073}
 --- !u!1 &5653847675329059943
 GameObject:
   m_ObjectHideFlags: 0
