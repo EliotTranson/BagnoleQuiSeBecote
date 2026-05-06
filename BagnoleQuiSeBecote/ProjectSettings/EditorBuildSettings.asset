@@ -8,5 +8,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/Cine_Intro.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/00_Scenes/LD_Course.unity
+    guid: 1f9850bdb52a0ab48b6eeddee5a9fb4f
+  - enabled: 1
+    path: Assets/00_Scenes/Atelier 1.unity
+    guid: daebac2140e7da34b959f33e624b746d
+  - enabled: 1
+    path: Assets/00_Scenes/Atelier2.unity
+    guid: 3feb59d82b40eae47ba30bf92acb8e93
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
