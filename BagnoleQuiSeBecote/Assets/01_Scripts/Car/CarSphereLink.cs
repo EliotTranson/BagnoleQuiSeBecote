@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CarSplitJ2 : MonoBehaviour
+public class CarSphereLink : MonoBehaviour
 {
     public SimpleCarController J2Car;
 }

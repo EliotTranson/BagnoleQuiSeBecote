@@ -95,27 +95,33 @@ public class SimpleCarController : MonoBehaviour
         if (mode.activeMode == CarInputMode.CarMode.Twice)
         {
             //Get Action Inputs changes
-            if (j1Input != InputHandler.Instance.J1Input.jump && !j1ActionDone)
+            if (j1Input != InputHandler.Instance.J1Input.jump)
             {
                 j1Input = InputHandler.Instance.J1Input.jump;
+                
                 if (j1Input)
                 {
+                    if (j1ActionDone) return;
                     Charge(1);
                 }
                 else
                 {
+                    if (j1ActionDone) return;
                     CallAction(1);
                 }
             }
-            if (j2Input != InputHandler.Instance.J2Input.jump && !j2ActionDone)
+            if (j2Input != InputHandler.Instance.J2Input.jump)
             {
                 j2Input = InputHandler.Instance.J2Input.jump;
+                
                 if (j2Input)
                 {
+                    if (j2ActionDone) return;
                     Charge(2);
                 }
                 else
                 {
+                    if (j2ActionDone) return;
                     CallAction(2);
                 }
             }

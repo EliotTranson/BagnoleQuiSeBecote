@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 4568475671611101048}
   - component: {fileID: 3935711890050146908}
   - component: {fileID: 1455172872651395829}
+  - component: {fileID: 652394634466119433}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -478,6 +479,19 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &652394634466119433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606989411113927508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4043d946b839c5d4e8465daf4ff204b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarSphereLink
+  J2Car: {fileID: 7943536221053479973}
 --- !u!1 &5167041579780265149
 GameObject:
   m_ObjectHideFlags: 0
