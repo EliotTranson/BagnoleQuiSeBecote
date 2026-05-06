@@ -6,7 +6,7 @@ public class CarSplit : MonoBehaviour
 {
     private SimpleCarController carController;
     private bool canMerge;
-    [SerializeField] private bool mergeEnable;
+    [SerializeField] private bool mergeEnable = true;
     private SimpleCarController otherCar;
 
     [SerializeField] private GameObject bigCar;

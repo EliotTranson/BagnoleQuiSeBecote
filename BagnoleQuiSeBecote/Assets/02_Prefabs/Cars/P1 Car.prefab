@@ -5888,6 +5888,7 @@ MonoBehaviour:
   mode: {fileID: 0}
   baseMesh: {fileID: 689325285934629742}
   tuningMesh: {fileID: 4232640295197911483}
+  klaxonSound: {fileID: 0}
   maxSpeed: 125
   turnStrength: 90
   dragOnGround: 3
@@ -5919,6 +5920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bec69342e8f9f947a647fa0abe73294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarSplit
+  mergeEnable: 1
   bigCar: {fileID: 2623550600963830419, guid: 00d7f82187d58ec4c8aa2e913b482abd, type: 3}
 --- !u!114 &602868693652641822
 MonoBehaviour:
