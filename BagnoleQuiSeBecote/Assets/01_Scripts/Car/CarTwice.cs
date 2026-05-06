@@ -24,6 +24,8 @@ public class CarTwice : MonoBehaviour
     
     private void Update()
     {
+        if (mode.activeMode != CarInputMode.CarMode.Twice) return;
+        
         inputsOffset = InputHandler.Instance.J1Input.turn * InputHandler.Instance.J2Input.turn;
         
         if (inputsOffset < -0.8f)
@@ -31,7 +33,7 @@ public class CarTwice : MonoBehaviour
             if (currentSplitTimer < splitTimer)
             {
                 currentSplitTimer += Time.deltaTime;
-                GetComponent<CinemachineShake>().SetSplitShake(currentSplitTimer * 15);
+                GetComponent<CameraController>().SetSplitShake(currentSplitTimer * 15);
             }
             else
             {
@@ -45,14 +47,14 @@ public class CarTwice : MonoBehaviour
         else
         {
             currentSplitTimer = 0;
-            GetComponent<CinemachineShake>().SetSplitShake(currentSplitTimer * 0);
+            GetComponent<CameraController>().SetSplitShake(currentSplitTimer * 0);
         }
     }
 
     private void CallSplit()
     {
         //Clear Camera Shake
-        GetComponent<CinemachineShake>().SetSplitShake(0);
+        GetComponent<CameraController>().SetSplitShake(0);
         
         //Instantiate Cars
         GameObject firstCar = Instantiate(J1Car, transform.position, transform.rotation);
@@ -67,7 +69,7 @@ public class CarTwice : MonoBehaviour
 
     private void Split(GameObject car, CarInputMode.CarMode mode)
     {
-        car.GetComponent<CinemachineShake>().ShakeCamera(10, 0.3f);
+        car.GetComponent<CameraController>().ShakeCamera(10, 0.3f);
         
         //Set Inputs
         car.GetComponent<CarInputMode>().activeMode = mode;

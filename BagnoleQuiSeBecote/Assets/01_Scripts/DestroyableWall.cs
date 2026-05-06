@@ -22,7 +22,7 @@ public class DestroyableWall : MonoBehaviour
     private void DestroyWall()
     {
         //Debug.Log("Destroy");
-        carController.GetComponent<CinemachineShake>().ShakeCamera(30, 0.18f);
+        carController.GetComponent<CameraController>().ShakeCamera(30, 0.18f);
         Instantiate(psExplosion, null);
         Destroy(gameObject);
     }
