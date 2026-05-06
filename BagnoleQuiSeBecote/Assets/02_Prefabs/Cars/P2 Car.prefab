@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 2285352870782424625}
   - component: {fileID: 2249317334791668192}
   - component: {fileID: 8165416395993576630}
+  - component: {fileID: 2903823469395187280}
   m_Layer: 0
   m_Name: P2 Car
   m_TagString: Player
@@ -283,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleCarController
   rb: {fileID: 4725196190555020659}
+  mode: {fileID: 0}
   baseMesh: {fileID: 8583488617744741407}
   tuningMesh: {fileID: 5874932235233177507}
   maxSpeed: 125
@@ -303,6 +305,20 @@ MonoBehaviour:
   jumpForce: 600
   dashSpeed: 0
   dashTimer: 0
+  isDashing: 0
+--- !u!114 &2903823469395187280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547115658235038165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd86f9a797f7894599942a253c47e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CinemachineShake
+  cineCam: {fileID: 4065119205029055286}
 --- !u!1 &4410768055056108576
 GameObject:
   m_ObjectHideFlags: 0

@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 5757869642793819103}
   - component: {fileID: 6644486143465529125}
   - component: {fileID: 2885682712613352131}
+  - component: {fileID: 602868693652641822}
   - component: {fileID: 5469973994574776492}
   m_Layer: 0
   m_Name: P1 Car
@@ -793,6 +794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleCarController
   rb: {fileID: 89236596618840867}
+  mode: {fileID: 0}
   baseMesh: {fileID: 689325285934629742}
   tuningMesh: {fileID: 4232640295197911483}
   maxSpeed: 125
@@ -813,6 +815,7 @@ MonoBehaviour:
   jumpForce: 600
   dashSpeed: 0
   dashTimer: 0
+  isDashing: 0
 --- !u!114 &2885682712613352131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,6 +829,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarSplit
   bigCar: {fileID: 2623550600963830419, guid: 00d7f82187d58ec4c8aa2e913b482abd, type: 3}
+--- !u!114 &602868693652641822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697885200171624653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd86f9a797f7894599942a253c47e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CinemachineShake
+  cineCam: {fileID: 424257895745703137}
 --- !u!65 &5469973994574776492
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 4526783726001443379}
   - component: {fileID: 7943536221053479973}
   - component: {fileID: 2620951835496771906}
+  - component: {fileID: 8713626148423237290}
   m_Layer: 0
   m_Name: Big Car
   m_TagString: Player
@@ -119,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleCarController
   rb: {fileID: 1455172872651395829}
+  mode: {fileID: 0}
   baseMesh: {fileID: 7706700170519021843}
   tuningMesh: {fileID: 5424506483191776449}
   maxSpeed: 250
@@ -139,6 +141,7 @@ MonoBehaviour:
   jumpForce: 600
   dashSpeed: 3
   dashTimer: 0.5
+  isDashing: 0
 --- !u!114 &2620951835496771906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +159,19 @@ MonoBehaviour:
   J2Car: {fileID: 3547115658235038165, guid: 8a28d5740a0ed9849a4ac7ac8a87e37c, type: 3}
   J1Mat: {fileID: 2100000, guid: 94396f502cb534d40b38c756b03afab8, type: 2}
   J2Mat: {fileID: 2100000, guid: 1a3f48f9b70a66c4aaeb4af3bc72c517, type: 2}
+--- !u!114 &8713626148423237290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2623550600963830419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd86f9a797f7894599942a253c47e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CinemachineShake
+  cineCam: {fileID: 3581211369498652899}
 --- !u!1 &3583408733190952787
 GameObject:
   m_ObjectHideFlags: 0

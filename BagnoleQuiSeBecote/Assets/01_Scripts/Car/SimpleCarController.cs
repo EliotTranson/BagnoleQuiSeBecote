@@ -16,6 +16,7 @@ public class SimpleCarController : MonoBehaviour
     [SerializeField] private float turnStrength = 180;
     [SerializeField] private float dragOnGround = 3;
     [HideInInspector] public float speed, turn;
+    private float currentTurnStrength;
     
     [Header("Gravity & Ground")]
     [SerializeField] private float gravityForce = 10f;
@@ -65,13 +66,23 @@ public class SimpleCarController : MonoBehaviour
         
         transform.position = rb.transform.position;
 
-        if (grounded)
+        //Debug.Log(currentTurnStrength);
+        if (input.decel > 0.6f && input.accel > 0.6f)
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turn * turnStrength * Time.deltaTime * speed, 0f));
+            currentTurnStrength = Mathf.Lerp(currentTurnStrength, turnStrength * 1.4f, 9 * Time.deltaTime);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turn * turnStrength/3 * Time.deltaTime * speed, 0f));
+            currentTurnStrength = Mathf.Lerp(currentTurnStrength, turnStrength, 4.5f * Time.deltaTime);
+        }
+
+        if (grounded)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turn * currentTurnStrength * Time.deltaTime * speed, 0f));
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turn * currentTurnStrength/3 * Time.deltaTime * speed, 0f));
         }
         
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localEulerAngles.x, (turn * maxWheelTurn) - 180, leftFrontWheel.localEulerAngles.z);
@@ -172,6 +183,7 @@ public class SimpleCarController : MonoBehaviour
     private void FixedUpdate()
     {
         GroundCheck();
+        //Debug.Log(rb.linearVelocity.magnitude);
         
         if (grounded)
         {
@@ -187,10 +199,8 @@ public class SimpleCarController : MonoBehaviour
             rb.AddForce(Vector3.down * gravityForce);
 
             var horizontalVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
-            Debug.Log(horizontalVelocity);
             if (horizontalVelocity < 8f)
             {
-                Debug.Log(horizontalVelocity);
                 rb.linearVelocity += (transform.forward * speed * 0.005f * maxSpeed);
             }
         }
