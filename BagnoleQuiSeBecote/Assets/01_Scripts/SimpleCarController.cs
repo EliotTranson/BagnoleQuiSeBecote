@@ -49,8 +49,14 @@ public class SimpleCarController : MonoBehaviour
     {
         rb.transform.parent = null;
         mode = GetComponent<CarInputMode>();
+        InitializeCar();
     }
 
+    private void InitializeCar()
+    {
+        InputHandler.Instance.SetupCar(mode.activeMode, gameObject);
+    }
+    
     private void Update()
     {
         MyInputs();
@@ -216,9 +222,9 @@ public class SimpleCarController : MonoBehaviour
             j2Call = true;
         }
         
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
         StartCoroutine(ActionCD());
-        yield return new WaitForSeconds(0.08f);
+        yield return new WaitForSeconds(0.07f);
 
         //Debug.Log($"{j1Call}/{j2Call} called");
 
@@ -246,7 +252,7 @@ public class SimpleCarController : MonoBehaviour
 
         if (playerIndex == 1)
         {
-           //j1ActionDone = true;
+           j1ActionDone = true;
         }
         if (playerIndex == 2)
         {

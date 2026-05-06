@@ -21,7 +21,7 @@ public class CarTwice : MonoBehaviour
         mode = GetComponent<CarInputMode>();
         carController = GetComponent<SimpleCarController>();
     }
-
+    
     private void Update()
     {
         inputsOffset = InputHandler.Instance.J1Input.turn * InputHandler.Instance.J2Input.turn;
@@ -31,13 +31,11 @@ public class CarTwice : MonoBehaviour
             if (currentSplitTimer < splitTimer)
             {
                 currentSplitTimer += Time.deltaTime;
-                Debug.Log(currentSplitTimer);
             }
             else
             {
                 if (!hasSplit)
                 {
-                    Debug.Log("Split");
                     CallSplit();
                     hasSplit = true;
                 }
