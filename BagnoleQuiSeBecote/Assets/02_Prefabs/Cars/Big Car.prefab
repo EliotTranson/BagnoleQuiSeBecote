@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60204b8664626a64fa62bdcf2a866d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarInputMode
-  activeMode: 1
+  activeMode: 3
 --- !u!114 &7943536221053479973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +444,6 @@ MonoBehaviour:
   mode: {fileID: 0}
   baseMesh: {fileID: 7706700170519021843}
   tuningMesh: {fileID: 5424506483191776449}
-  klaxonInput: {fileID: 5192537138258684938, guid: 34ec3bea854ebb94390c5138723de089, type: 3}
   klaxonSound: {fileID: 7565935650404980769}
   maxSpeed: 250
   turnStrength: 120
@@ -477,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431b76a3b3a3e214ca258a098aa83c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarTwice
+  splitEnabled: 1
   splitTimer: 1
   J1Car: {fileID: 8697885200171624653, guid: f6ea4aabeb4fd3241955773c5ebbd45e, type: 3}
   J2Car: {fileID: 3547115658235038165, guid: 8a28d5740a0ed9849a4ac7ac8a87e37c, type: 3}

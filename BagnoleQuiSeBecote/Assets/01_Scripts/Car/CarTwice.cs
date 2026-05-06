@@ -8,6 +8,7 @@ public class CarTwice : MonoBehaviour
     private float inputsOffset;
     private float currentSplitTimer;
     private bool hasSplit;
+    [SerializeField] private bool splitEnabled = true;
     [SerializeField] private float splitTimer = 1f;
     
     [Header("Prefabs")]
@@ -25,6 +26,7 @@ public class CarTwice : MonoBehaviour
     private void Update()
     {
         if (mode.activeMode != CarInputMode.CarMode.Twice) return;
+        if (!splitEnabled) return;
         
         inputsOffset = InputHandler.Instance.J1Input.turn * InputHandler.Instance.J2Input.turn;
         
