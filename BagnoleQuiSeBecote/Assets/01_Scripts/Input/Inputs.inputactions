@@ -44,9 +44,9 @@
                 },
                 {
                     "name": "Klaxon",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "7e31aebb-a792-400d-a92a-5f5c6c1dbfe3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -192,7 +192,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Ouinck",
+                    "action": "Klaxon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
