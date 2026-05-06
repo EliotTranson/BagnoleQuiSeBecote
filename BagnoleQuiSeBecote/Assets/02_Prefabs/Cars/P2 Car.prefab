@@ -810,7 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4043d946b839c5d4e8465daf4ff204b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarSplitJ2
-  J2Car: {fileID: 8165416395993576630}
+  car: {fileID: 8165416395993576630}
 --- !u!1001 &8485601783340093680
 PrefabInstance:
   m_ObjectHideFlags: 0
