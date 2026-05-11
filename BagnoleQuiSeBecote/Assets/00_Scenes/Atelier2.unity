@@ -39780,7 +39780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3547115658235038165, guid: 8a28d5740a0ed9849a4ac7ac8a87e37c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3938833548938314717, guid: 8a28d5740a0ed9849a4ac7ac8a87e37c, type: 3}
       propertyPath: m_Mesh
