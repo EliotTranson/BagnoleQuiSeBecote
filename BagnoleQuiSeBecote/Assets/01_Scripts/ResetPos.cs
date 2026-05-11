@@ -21,9 +21,9 @@ public class ResetPos : MonoBehaviour
         Debug.Log(other.gameObject.name);
         if (other.CompareTag("Player"))
         {
-            player.transform.position = pos.transform.position;
-            player.transform.rotation = pos.transform.rotation;
-            player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+            other.transform.position = pos.transform.position;
+            other.transform.rotation = pos.transform.rotation;
+            other.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             Debug.Log("Touché");
         }
     }
