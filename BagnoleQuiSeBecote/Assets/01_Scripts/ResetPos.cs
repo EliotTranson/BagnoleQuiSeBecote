@@ -3,7 +3,6 @@ using UnityEngine;
 public class ResetPos : MonoBehaviour
 {
     public GameObject pos;
-    public GameObject player;
     //public SimpleCarController simpleCarController;
     void Start()
     {

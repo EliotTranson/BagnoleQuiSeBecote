@@ -3,6 +3,7 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 public class SimpleCarController : MonoBehaviour
@@ -369,6 +370,12 @@ public class SimpleCarController : MonoBehaviour
 
     public void Klaxon()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("Reload");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        
         if (input.klaxon)
         {
             klaxonSound.Play();
