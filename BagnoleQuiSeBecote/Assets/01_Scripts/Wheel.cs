@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class Wheel : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public ParticleSystem particle;
+    public MeshRenderer mesh1;
+    public MeshRenderer mesh2;
+    public MeshRenderer mesh3;
     void Start()
     {
         
@@ -13,7 +16,10 @@ public class Wheel : MonoBehaviour
     {
         if (other.CompareTag("Player"));
         {
-            Destroy(this.gameObject);
+            particle.Play();
+            mesh1.enabled = false;
+            mesh2.enabled = false;
+            mesh3.enabled = false;
         }
     }
 
