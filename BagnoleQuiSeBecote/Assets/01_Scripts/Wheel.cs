@@ -1,5 +1,7 @@
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wheel : MonoBehaviour
 {
@@ -7,11 +9,9 @@ public class Wheel : MonoBehaviour
     public MeshRenderer mesh1;
     public MeshRenderer mesh2;
     public MeshRenderer mesh3;
-    void Start()
-    {
-        
-    }
 
+    public CallMrWheel call;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"));
@@ -20,12 +20,11 @@ public class Wheel : MonoBehaviour
             mesh1.enabled = false;
             mesh2.enabled = false;
             mesh3.enabled = false;
+
+            call.Call();
         }
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
