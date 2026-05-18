@@ -542,6 +542,7 @@ MonoBehaviour:
   mode: {fileID: 0}
   baseMesh: {fileID: 8583488617744741407}
   tuningMesh: {fileID: 5874932235233177507}
+  klaxonSound: {fileID: 0}
   maxSpeed: 125
   turnStrength: 90
   dragOnGround: 3
@@ -550,7 +551,7 @@ MonoBehaviour:
   gravityForce: 80
   lmGround:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 32776
   groundRayLength: 0.5
   groundRayPoint: {fileID: 2878171439343188065}
   animator: {fileID: 1297972707771412423}
@@ -650,7 +651,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4223
+    m_Bits: 53375
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5899,7 +5900,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
