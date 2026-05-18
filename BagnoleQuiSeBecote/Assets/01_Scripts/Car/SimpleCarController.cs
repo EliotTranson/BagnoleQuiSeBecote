@@ -249,9 +249,9 @@ public class SimpleCarController : MonoBehaviour
             j2Call = true;
         }
         
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.18f);
         StartCoroutine(ActionCD());
-        yield return new WaitForSeconds(0.07f);
+        yield return new WaitForSeconds(0.18f);
 
         //Debug.Log($"{j1Call}/{j2Call} called");
 

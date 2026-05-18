@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 1, g: 1, b: 1, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -19926,7 +19926,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.81607926, g: 0.78666747, b: 0.68509865, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -19989,7 +19989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275928488}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.080521464, y: 0.3812272, z: -0.9203639, w: 0.033353083}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -158242,6 +158242,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3237895575531167385, guid: d938b307e4fd5bf4ba9bb077aa480e81, type: 3}
+      propertyPath: TimeOfDay
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237895575531167385, guid: d938b307e4fd5bf4ba9bb077aa480e81, type: 3}
+      propertyPath: TimeSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237895575531167385, guid: d938b307e4fd5bf4ba9bb077aa480e81, type: 3}
+      propertyPath: DirectionalLight
+      value: 
+      objectReference: {fileID: 275928489}
     - target: {fileID: 4056873044475040482, guid: d938b307e4fd5bf4ba9bb077aa480e81, type: 3}
       propertyPath: m_LocalPosition.x
       value: -43.21023
@@ -158290,6 +158302,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7110012841721622051, guid: d938b307e4fd5bf4ba9bb077aa480e81, type: 3}
+      propertyPath: DirectionalLight
+      value: 
+      objectReference: {fileID: 275928489}
     - target: {fileID: 8687645605394864294, guid: d938b307e4fd5bf4ba9bb077aa480e81, type: 3}
       propertyPath: m_Layer
       value: 3

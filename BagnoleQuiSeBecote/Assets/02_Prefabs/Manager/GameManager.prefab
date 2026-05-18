@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4056873044475040482}
   - component: {fileID: 3368593582552948645}
   - component: {fileID: 6299742583925812045}
+  - component: {fileID: 3237895575531167385}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -107,6 +108,25 @@ MonoBehaviour:
   J1Text: {fileID: 8516782022149276823}
   J2Text: {fileID: 8353041855833655951}
   TwoPlayerText: {fileID: 7031346962546606510}
+  BigCar: {fileID: 0}
+  J1Car: {fileID: 0}
+  J2Car: {fileID: 0}
+--- !u!114 &3237895575531167385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518046170276972537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423d03fd2b3902e4ebab7d2f51a773a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightingManager
+  DirectionalLight: {fileID: 0}
+  Preset: {fileID: 11400000, guid: 90c3c66ae35e3b840be125e2619555e4, type: 2}
+  TimeOfDay: 8.4
+  TimeSpeed: 0.053
 --- !u!1 &1485757012350926185
 GameObject:
   m_ObjectHideFlags: 0
