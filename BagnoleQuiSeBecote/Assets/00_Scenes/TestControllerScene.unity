@@ -5205,6 +5205,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1410410030}
+    - target: {fileID: 4526783726001443379, guid: 00d7f82187d58ec4c8aa2e913b482abd, type: 3}
+      propertyPath: activeMode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5032531795517495456, guid: 00d7f82187d58ec4c8aa2e913b482abd, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -5546,6 +5550,10 @@ PrefabInstance:
     - target: {fileID: 8687645605394864294, guid: d938b307e4fd5bf4ba9bb077aa480e81, type: 3}
       propertyPath: m_Name
       value: Debug
+      objectReference: {fileID: 0}
+    - target: {fileID: 8687645605394864294, guid: d938b307e4fd5bf4ba9bb077aa480e81, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
