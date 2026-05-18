@@ -461,8 +461,8 @@ MonoBehaviour:
   rightFrontWheel: {fileID: 7510695454631443945}
   maxWheelTurn: 35
   jumpForce: 600
-  dashSpeed: 3
-  dashTimer: 0.5
+  dashSpeed: 2.4
+  dashTimer: 0.9
   isDashing: 0
 --- !u!114 &2620951835496771906
 MonoBehaviour:
