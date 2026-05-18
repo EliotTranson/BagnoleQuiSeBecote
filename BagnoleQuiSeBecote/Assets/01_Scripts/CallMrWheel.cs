@@ -37,5 +37,10 @@ public class CallMrWheel : MonoBehaviour
     public void Call()
     {
         duration = timer;
+        var cameras = FindObjectsByType<CameraController>(sortMode: FindObjectsSortMode.None);
+        foreach (var camera in cameras)
+        {
+            camera.ShakeCamera(20,0.2f);
+        }
     }
 }
