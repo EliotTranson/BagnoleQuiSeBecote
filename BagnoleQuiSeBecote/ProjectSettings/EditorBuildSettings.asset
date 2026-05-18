@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/Atelier 2.unity
     guid: 3feb59d82b40eae47ba30bf92acb8e93
+  - enabled: 1
+    path: Assets/00_Scenes/Cinematics/Cinematic_End.unity
+    guid: e5c009ba3cc74004db76cc12f155e01d
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
