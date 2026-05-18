@@ -34022,7 +34022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ea90c86cb78aa458fbba4c5ecf823e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CinematicSceneSwitcher
-  changeTime: 6
+  changeTime: 7
   sceneIndex: 1
 --- !u!43 &1019017081
 Mesh:
