@@ -445,7 +445,7 @@ MonoBehaviour:
   baseMesh: {fileID: 7706700170519021843}
   tuningMesh: {fileID: 5424506483191776449}
   klaxonSound: {fileID: 7565935650404980769}
-  maxSpeed: 250
+  maxSpeed: 220
   turnStrength: 120
   dragOnGround: 3
   speed: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
   rightFrontWheel: {fileID: 7510695454631443945}
   maxWheelTurn: 35
   jumpForce: 600
-  dashSpeed: 2.1
+  dashSpeed: 1.8
   dashTimer: 0.9
   isDashing: 0
 --- !u!114 &2620951835496771906
